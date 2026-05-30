@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dresscode — David & Emma</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .dresscode-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 300; font-style: italic;
+    color: var(--cream); line-height: 1.6;
+    text-align: center; margin-bottom: 3.5rem;
+    padding: 0 2rem;
+  }
+
+  .dresscode-section {
+    margin-bottom: 3rem;
+  }
+  .dresscode-section-title {
+    font-size: 0.65rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1.2rem; opacity: 0.85;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(201,162,87,0.12);
+  }
+  .dresscode-text {
+    font-size: 0.9rem; color: rgba(244,237,216,0.7);
+    line-height: 2;
+  }
+  .dresscode-text strong { color: var(--cream); font-weight: 400; }
+
+  /* Palette */
+  .palette-row {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    margin-top: 1.5rem; align-items: flex-end;
+  }
+  .palette-item { text-align: center; }
+  .swatch-lg {
+    width: 56px; height: 56px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+    margin: 0 auto 0.5rem;
+  }
+  .swatch-name {
+    font-size: 0.62rem; color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* Do / Don't */
+  .do-dont {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin-top: 1.5rem;
+  }
+  .do-box, .dont-box {
+    padding: 1.5rem;
+    border: 1px solid rgba(201,162,87,0.12);
+    background: rgba(44,32,24,0.3);
+  }
+  .do-box-title {
+    font-size: 0.62rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--sage);
+    margin-bottom: 0.8rem;
+  }
+  .dont-box-title {
+    font-size: 0.62rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #8B4040;
+    margin-bottom: 0.8rem;
+  }
+  .do-list, .dont-list {
+    list-style: none; font-size: 0.83rem;
+    color: var(--muted); line-height: 2;
+  }
+  .do-list li::before { content: '✓  '; color: var(--sage); }
+  .dont-list li::before { content: '✕  '; color: #8B4040; }
+
+  .quote-block {
+    margin: 3rem 0;
+    padding: 2rem 2.5rem;
+    border-left: 2px solid rgba(201,162,87,0.3);
+    background: rgba(44,32,24,0.3);
+  }
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; font-style: italic; font-weight: 300;
+    color: var(--cream); line-height: 1.7;
+  }
+  .quote-sub {
+    font-size: 0.72rem; letter-spacing: 0.15em;
+    color: var(--muted); margin-top: 0.8rem;
+  }
+
+  @media (max-width: 640px) {
+    .do-dont { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">D & E</a>
+  <ul>
+    <li><a href="locatie.html">Locatie</a></li>
+    <li><a href="dresscode.html" class="active">Dresscode</a></li>
+    <li><a href="rsvp.html">RSVP</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <p class="page-eyebrow">Wat draag ik?</p>
+  <h1 class="page-title">Dresscode</h1>
+  <div class="gold-line"></div>
+</div>
+
+<div class="content">
+
+  <p class="dresscode-intro">
+    "Denk aan een winterse avond in het bos — warm kaarslicht,<br>
+    de geur van dennenbomen, rijpe bessen en goud."
+  </p>
+
+  <div class="dresscode-section">
+    <p class="dresscode-section-title">De stijl</p>
+    <p class="dresscode-text">
+      Wij vragen onze gasten om te komen in <strong>black tie</strong> stijl.
+      Denk aan avondkleding die past bij een rijke, warme winteravond —
+      fluwelen stoffen, diepgroene tinten, bordeauxrood, champagne of klassiek zwart.
+      Laat je inspireren door de schoonheid van de winter zoals jullie die zien:
+      <strong>warm, weelderig en tijdloos</strong> — zonder kerstboom in zicht.
+    </p>
+  </div>
+
+  <div class="dresscode-section">
+    <p class="dresscode-section-title">Kleurenpalet</p>
+    <p class="dresscode-text">Kleuren die passen bij de sfeer van de avond:</p>
+    <div class="palette-row">
+      <div class="palette-item">
+        <div class="swatch-lg" style="background:#1A1510;"></div>
+        <p class="swatch-name">Nacht</p>
+      </div>
+      <div class="palette-item">
+        <div class="swatch-lg" style="background:#3A5038;"></div>
+        <p class="swatch-name">Den</p>
+      </div>
+      <div class="palette-item">
+        <div class="swatch-lg" style="background:#4A6348;"></div>
+        <p class="swatch-name">Salie</p>
+      </div>
+      <div class="palette-item">
+        <div class="swatch-lg" style="background:#8B2E2E;"></div>
+        <p class="swatch-name">Bordeaux</p>
+      </div>
+      <div class="palette-item">
+        <div class="swatch-lg" style="background:#C9A257;"></div>
+        <p class="swatch-name">Goud</p>
+      </div>
+      <div class="palette-item">
+        <div class="swatch-lg" style="background:#2C2018;"></div>
+        <p class="swatch-name">Walnoot</p>
+      </div>
+      <div class="palette-item">
+        <div class="swatch-lg" style="background:#F4EDD8;"></div>
+        <p class="swatch-name">Champagne</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="do-dont">
+    <div class="do-box">
+      <p class="do-box-title">Goed idee</p>
+      <ul class="do-list">
+        <li>Avondkleding & smoking</li>
+        <li>Fluweel & zijde</li>
+        <li>Donkere, rijke kleuren</li>
+        <li>Goud en champagne accenten</li>
+        <li>Klassiek zwart</li>
+        <li>Bordeaux & wijnrood</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <p class="dont-box-title">Liever niet</p>
+      <ul class="dont-list">
+        <li>Wit of ivoor</li>
+        <li>Feestelijk rood & groen</li>
+        <li>Heldere of neonkleuren</li>
+        <li>Casual kleding</li>
+        <li>Prints & patronen</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">
+      "We willen de winter in onze bruiloft brengen —<br>
+      de echte winter, niet de kerstversie."
+    </p>
+    <p class="quote-sub">— David & Emma</p>
+  </div>
+
+  <div class="dresscode-section">
+    <p class="dresscode-section-title">Praktisch</p>
+    <p class="dresscode-text">
+      De ceremonie en receptie vinden gedeeltelijk buiten plaats.
+      Zorg voor <strong>warme laagjes</strong> onder je avondkleding —
+      een mooie jas of stola is altijd een goed idee voor de winterse buitenactiviteiten.
+      High heels: het kasteelterrein heeft graspartijen, houd hier rekening mee.
+    </p>
+  </div>
+
+</div>
+
+<footer>David & Emma &nbsp;·&nbsp; 27 november 2027</footer>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSVP — David & Emma</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .rsvp-deadline {
+    text-align: center;
+    font-size: 0.75rem; letter-spacing: 0.15em;
+    color: var(--muted); margin-bottom: 3rem;
+    padding: 1rem;
+    border: 1px solid rgba(201,162,87,0.12);
+    background: rgba(44,32,24,0.3);
+  }
+  .rsvp-deadline strong { color: var(--gold2); font-weight: 400; }
+
+  .rsvp-form-wrap {
+    max-width: 540px; margin: 0 auto;
+  }
+
+  .form-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+
+  .step-indicator {
+    display: flex; gap: 0; margin-bottom: 2.5rem;
+  }
+  .step {
+    flex: 1; padding: 0.7rem;
+    text-align: center; font-size: 0.62rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid rgba(201,162,87,0.15);
+  }
+  .step.active {
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold);
+  }
+  .step.done {
+    color: var(--sage);
+    border-bottom: 1px solid var(--sage);
+  }
+
+  textarea.form-input {
+    resize: vertical; min-height: 90px;
+  }
+
+  @media (max-width: 640px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">D & E</a>
+  <ul>
+    <li><a href="locatie.html">Locatie</a></li>
+    <li><a href="dresscode.html">Dresscode</a></li>
+    <li><a href="rsvp.html" class="active">RSVP</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <p class="page-eyebrow">Kom je ook?</p>
+  <h1 class="page-title">RSVP</h1>
+  <div class="gold-line"></div>
+</div>
+
+<div class="content">
+
+  <p class="rsvp-deadline">
+    Gelieve vóór <strong>1 september 2027</strong> te reageren
+  </p>
+
+  <div class="rsvp-form-wrap">
+
+    <div id="rsvp-form">
+      <div class="step-indicator">
+        <div class="step active" id="step1-ind">Gegevens</div>
+        <div class="step" id="step2-ind">Aanwezigheid</div>
+        <div class="step" id="step3-ind">Wensen</div>
+      </div>
+
+      <!-- STAP 1 -->
+      <div id="step1">
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label">Voornaam</label>
+            <input class="form-input" type="text" id="inp-voornaam" placeholder="Jouw voornaam">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Achternaam</label>
+            <input class="form-input" type="text" id="inp-achternaam" placeholder="Jouw achternaam">
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">E-mailadres</label>
+          <input class="form-input" type="email" id="inp-email" placeholder="jouw@email.nl">
+        </div>
+        <button class="btn-gold" onclick="goStep(2)">Volgende →</button>
+      </div>
+
+      <!-- STAP 2 -->
+      <div id="step2" style="display:none;">
+        <div class="form-field">
+          <label class="form-label">Aanwezigheid</label>
+          <div class="radio-group">
+            <div class="radio-opt active" data-val="ja" onclick="selectAttend(this)">✓ &nbsp;Ik kom!</div>
+            <div class="radio-opt" data-val="nee" onclick="selectAttend(this)">✕ &nbsp;Helaas niet</div>
+          </div>
+        </div>
+        <div class="form-field" id="aantal-wrap">
+          <label class="form-label">Aantal personen (inclusief jezelf)</label>
+          <input class="form-input" type="number" id="inp-aantal" min="1" max="8" value="1">
+        </div>
+        <div class="form-field" id="moment-wrap">
+          <label class="form-label">Aanwezig bij</label>
+          <div class="radio-group" style="flex-direction:column; gap:0.6rem;">
+            <div class="radio-opt active" style="justify-content:flex-start; padding-left:1rem;" data-moment="alles" onclick="selectMoment(this)">Ceremonie, receptie, diner & feest</div>
+            <div class="radio-opt" style="justify-content:flex-start; padding-left:1rem;" data-moment="diner" onclick="selectMoment(this)">Alleen diner & feest (vanaf 17:30)</div>
+            <div class="radio-opt" style="justify-content:flex-start; padding-left:1rem;" data-moment="feest" onclick="selectMoment(this)">Alleen het feest (vanaf 20:00)</div>
+          </div>
+        </div>
+        <button class="btn-gold" onclick="goStep(3)">Volgende →</button>
+      </div>
+
+      <!-- STAP 3 -->
+      <div id="step3" style="display:none;">
+        <div class="form-field" id="dieet-wrap">
+          <label class="form-label">Dieetwensen of allergieën</label>
+          <input class="form-input" type="text" id="inp-dieet" placeholder="Bijv. glutenvrij, vegetarisch, noten…">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Lied aanvragen voor de dansvloer?</label>
+          <input class="form-input" type="text" id="inp-lied" placeholder="Artiest & songtitel">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Bericht voor David & Emma (optioneel)</label>
+          <textarea class="form-input" id="inp-bericht" placeholder="Schrijf ons een persoonlijk berichtje…"></textarea>
+        </div>
+        <button class="btn-gold" onclick="submitRsvp()">Versturen</button>
+      </div>
+    </div>
+
+    <div class="success-box" id="rsvp-success">
+      <p class="success-title">Dankjewel!</p>
+      <p class="success-text" id="success-msg">We hebben jouw aanmelding ontvangen.<br>Tot 27 november 2027!</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>David & Emma &nbsp;·&nbsp; 27 november 2027</footer>
+
+<script>
+  let attendVal = 'ja';
+
+  function goStep(n) {
+    if (n === 2) {
+      const voor = document.getElementById('inp-voornaam').value.trim();
+      const email = document.getElementById('inp-email').value.trim();
+      if (!voor || !email) { alert('Vul je naam en e-mailadres in.'); return; }
+    }
+    [1,2,3].forEach(i => {
+      document.getElementById('step'+i).style.display = i === n ? '' : 'none';
+      const ind = document.getElementById('step'+i+'-ind');
+      ind.className = 'step' + (i === n ? ' active' : i < n ? ' done' : '');
+    });
+  }
+
+  function selectAttend(el) {
+    document.querySelectorAll('.radio-opt[data-val]').forEach(e => e.classList.remove('active'));
+    el.classList.add('active');
+    attendVal = el.dataset.val;
+    const show = attendVal === 'ja';
+    document.getElementById('aantal-wrap').style.display = show ? '' : 'none';
+    document.getElementById('moment-wrap').style.display = show ? '' : 'none';
+  }
+
+  function selectMoment(el) {
+    document.querySelectorAll('.radio-opt[data-moment]').forEach(e => e.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  function submitRsvp() {
+    document.getElementById('rsvp-form').style.display = 'none';
+    const success = document.getElementById('rsvp-success');
+    success.style.display = 'block';
+    if (attendVal === 'nee') {
+      document.getElementById('success-msg').innerHTML =
+        'We begrijpen het en zijn blij dat je hebt laten weten.<br>We missen je op 27 november!';
+    }
+  }
+</script>
+</body>
+</html>

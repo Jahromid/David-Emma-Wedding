@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David & Emma — 27 november 2027</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 0 2rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(90px); pointer-events: none; opacity: 0.14;
+  }
+  .hero-content { position: relative; z-index: 1; }
+
+  .eyebrow {
+    font-size: 0.65rem; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 2rem; opacity: 0.8;
+  }
+  .names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4.5rem, 11vw, 8.5rem);
+    font-weight: 300; line-height: 1;
+    color: var(--cream);
+  }
+  .names em { font-style: italic; color: var(--gold2); }
+
+  .wedding-date {
+    margin-top: 1.8rem;
+    font-size: 0.75rem; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  .divider-line {
+    width: 1px; height: 55px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    margin: 2.5rem auto; opacity: 0.55;
+  }
+
+  /* COUNTDOWN */
+  .countdown {
+    display: flex; gap: 0;
+    justify-content: center;
+    border: 1px solid rgba(201,162,87,0.15);
+  }
+  .cd-block {
+    padding: 2rem 2.5rem;
+    text-align: center;
+    border-right: 1px solid rgba(201,162,87,0.1);
+    min-width: 110px;
+  }
+  .cd-block:last-child { border-right: none; }
+  .cd-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    font-weight: 300; color: var(--gold2);
+    line-height: 1; display: block;
+  }
+  .cd-label {
+    font-size: 0.58rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--muted);
+    margin-top: 0.5rem; display: block;
+  }
+
+  /* NAV LINKS BELOW */
+  .nav-cards {
+    display: flex; gap: 1.5rem;
+    margin-top: 3.5rem; flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-card {
+    text-decoration: none;
+    border: 1px solid rgba(201,162,87,0.15);
+    padding: 1rem 1.8rem;
+    color: var(--muted); font-size: 0.68rem;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    transition: all 0.2s; position: relative;
+  }
+  .nav-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 0; height: 1px; background: var(--gold);
+    transition: width 0.3s;
+  }
+  .nav-card:hover::before { width: 100%; }
+  .nav-card:hover { color: var(--gold); border-color: rgba(201,162,87,0.35); }
+
+  @media (max-width: 640px) {
+    .cd-block { padding: 1.4rem 1.2rem; min-width: 72px; }
+    .countdown { gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">D & E</a>
+  <ul>
+    <li><a href="locatie.html">Locatie</a></li>
+    <li><a href="dresscode.html">Dresscode</a></li>
+    <li><a href="rsvp.html">RSVP</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg" id="bg">
+    <div class="orb" style="width:500px;height:500px;background:#C9A257;top:5%;left:10%;"></div>
+    <div class="orb" style="width:350px;height:350px;background:#4A6348;top:55%;right:8%;"></div>
+    <div class="orb" style="width:280px;height:280px;background:#C9A257;bottom:5%;left:45%;"></div>
+  </div>
+
+  <div class="hero-content">
+    <p class="eyebrow">Wij gaan trouwen</p>
+
+    <h1 class="names">
+      David<br><em>& Emma</em>
+    </h1>
+
+    <p class="wedding-date">Zaterdag 27 november 2027</p>
+
+    <div class="divider-line"></div>
+
+    <div class="countdown">
+      <div class="cd-block">
+        <span class="cd-num" id="cd-days">—</span>
+        <span class="cd-label">dagen</span>
+      </div>
+      <div class="cd-block">
+        <span class="cd-num" id="cd-hours">—</span>
+        <span class="cd-label">uren</span>
+      </div>
+      <div class="cd-block">
+        <span class="cd-num" id="cd-mins">—</span>
+        <span class="cd-label">minuten</span>
+      </div>
+      <div class="cd-block">
+        <span class="cd-num" id="cd-secs">—</span>
+        <span class="cd-label">seconden</span>
+      </div>
+    </div>
+
+    <div class="nav-cards">
+      <a href="locatie.html" class="nav-card">Locatie & route</a>
+      <a href="dresscode.html" class="nav-card">Dresscode</a>
+      <a href="rsvp.html" class="nav-card">RSVP</a>
+    </div>
+  </div>
+</div>
+
+<footer>David & Emma &nbsp;·&nbsp; 27 november 2027</footer>
+
+<script>
+  // Particles
+  const bg = document.getElementById('bg');
+  for (let i = 0; i < 55; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const s = 1.5 + Math.random() * 2.5;
+    p.style.cssText = `width:${s}px;height:${s}px;background:rgba(${Math.random()>.5?'201,162,87':'244,237,216'},${.4+Math.random()*.5});left:${Math.random()*100}vw;animation-duration:${10+Math.random()*18}s;animation-delay:${-Math.random()*20}s;top:-10px;position:absolute;`;
+    bg.appendChild(p);
+  }
+
+  // Countdown
+  function tick() {
+    const target = new Date('2027-11-27T14:00:00');
+    const diff = target - new Date();
+    if (diff <= 0) {
+      ['days','hours','mins','secs'].forEach(id => document.getElementById('cd-'+id).textContent = '0');
+      return;
+    }
+    document.getElementById('cd-days').textContent  = Math.floor(diff / 86400000);
+    document.getElementById('cd-hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+  }
+  tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>

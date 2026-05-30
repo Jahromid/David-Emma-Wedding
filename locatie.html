@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locatie — David & Emma</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .timeline {
+    position: relative;
+    margin-top: 3.5rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: rgba(201,162,87,0.2);
+  }
+  .timeline-item {
+    position: relative;
+    padding: 0 0 2.5rem 2.5rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -4px; top: 6px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--gold); opacity: 0.7;
+  }
+  .timeline-time {
+    font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .timeline-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 300;
+    color: var(--cream); margin-bottom: 0.2rem;
+  }
+  .timeline-desc {
+    font-size: 0.83rem; color: var(--muted); line-height: 1.8;
+  }
+
+  .map-placeholder {
+    margin-top: 3.5rem;
+    border: 1px solid rgba(201,162,87,0.15);
+    background: rgba(44,32,24,0.3);
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .map-placeholder p {
+    font-size: 0.82rem; color: var(--muted); line-height: 1.9;
+    margin-bottom: 1.2rem;
+  }
+  .map-link {
+    display: inline-block;
+    font-size: 0.68rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    border: 1px solid rgba(201,162,87,0.3);
+    padding: 0.75rem 1.5rem;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .map-link:hover { background: rgba(201,162,87,0.08); }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .info-block {
+    padding: 1.5rem;
+    border: 1px solid rgba(201,162,87,0.12);
+    background: rgba(44,32,24,0.3);
+  }
+  .info-block-label {
+    font-size: 0.6rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.6rem; opacity: 0.8;
+  }
+  .info-block-text {
+    font-size: 0.85rem; color: var(--muted); line-height: 1.8;
+  }
+
+  @media (max-width: 640px) {
+    .info-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">D & E</a>
+  <ul>
+    <li><a href="locatie.html" class="active">Locatie</a></li>
+    <li><a href="dresscode.html">Dresscode</a></li>
+    <li><a href="rsvp.html">RSVP</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <p class="page-eyebrow">27 november 2027</p>
+  <h1 class="page-title">Locatie & route</h1>
+  <div class="gold-line"></div>
+</div>
+
+<div class="content">
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <p class="timeline-time">14:00 — Ontvangst</p>
+      <p class="timeline-name">Kasteel Ter Horst</p>
+      <p class="timeline-desc">Welkom bij aankomst met een drankje en hapjes in de foyer.<br>Kasteellaan 1, 7213 AB Gorssel</p>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-time">15:00 — Ceremonie</p>
+      <p class="timeline-name">De Trouwzaal</p>
+      <p class="timeline-desc">De officiële huwelijksceremonie in de historische trouwzaal.</p>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-time">16:00 — Receptie</p>
+      <p class="timeline-name">De Binnentuin</p>
+      <p class="timeline-desc">Bubbels en borrels in de winterse binnentuin.<br>Verwarm je bij de vuurkorven en geniet van de sfeer.</p>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-time">17:30 — Diner</p>
+      <p class="timeline-name">De Orangerie</p>
+      <p class="timeline-desc">Vijfgangendiner bij kaarslicht in de historische orangerie.</p>
+    </div>
+    <div class="timeline-item" style="padding-bottom:0;">
+      <p class="timeline-time">20:00 — Feest</p>
+      <p class="timeline-name">De Grote Zaal</p>
+      <p class="timeline-desc">Het feest begint — dans, muziek en herinneringen voor het leven.</p>
+    </div>
+  </div>
+
+  <div class="map-placeholder">
+    <p>Kasteel Ter Horst<br>Kasteellaan 1, 7213 AB Gorssel</p>
+    <a class="map-link" href="https://maps.google.com/?q=Kasteellaan+1,+7213+AB+Gorssel" target="_blank">Open in Google Maps →</a>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-block">
+      <p class="info-block-label">Parkeren</p>
+      <p class="info-block-text">Gratis parkeren op het kasteelterrein.<br>Volg de borden bij de inrit.</p>
+    </div>
+    <div class="info-block">
+      <p class="info-block-label">Openbaar vervoer</p>
+      <p class="info-block-text">Station Zutphen (15 min met taxi).<br>Wij regelen een shuttle vanaf 13:30.</p>
+    </div>
+    <div class="info-block">
+      <p class="info-block-label">Overnachten</p>
+      <p class="info-block-text">Overnachting mogelijk in het kasteel zelf.<br>Neem contact op voor beschikbaarheid.</p>
+    </div>
+    <div class="info-block">
+      <p class="info-block-label">Vragen?</p>
+      <p class="info-block-text">Stuur een bericht naar<br>bruiloft@davidengemma.nl</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>David & Emma &nbsp;·&nbsp; 27 november 2027</footer>
+
+</body>
+</html>
